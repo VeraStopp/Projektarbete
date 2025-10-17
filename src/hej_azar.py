@@ -1,1 +1,0 @@
-print("Hej test/azar")
