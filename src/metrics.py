@@ -3,6 +3,10 @@ def calculating_revenue_city(df):
     result = result.sort_values(by="revenue", ascending=False).reset_index(drop=True)
     return result
 
+def calculate_category_rev(df):
+    summary = df.groupby("category")["revenue"].sum().reset_index()
+    summary = summary.sort_values(by="revenue", ascending=False)
+    return summary
 
 def calculate_average_order_value(df):   
     total_revenue = df['revenue'].sum()             #get total revenue from CSV 
