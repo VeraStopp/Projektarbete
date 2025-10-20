@@ -1,3 +1,0 @@
-
-
-print("Hej från Carina")
