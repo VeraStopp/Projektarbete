@@ -14,6 +14,9 @@ def calculate_average_order_value(df):
     average_order_value = total_revenue / total_unique_orders
     return average_order_value, total_revenue
 
+def calculate_total_revenue(df):
+    return float(df['revenue'].sum())
 
-
+def calculate_total_units(df):
+    return int(df['units'].sum())
     
