@@ -9,14 +9,14 @@ def calculate_category_rev(df):
     return result_cat
 
 def calculate_average_order_value(df):   
-    total_revenue = df['revenue'].sum()             #get total revenue from CSV 
+    total_revenue = df["revenue"].sum()             #get total revenue from CSV 
     total_unique_orders = df['order_id'].nunique()  #get total unique orders from CSV
-    average_order_value = total_revenue / total_unique_orders
-    return average_order_value, total_revenue
+    return total_revenue / total_unique_orders
 
 def calculate_total_revenue(df):
-    return float(df['revenue'].sum())
+    return float(df["revenue"].sum())
 
 def calculate_total_units(df):
-    return int(df['units'].sum())
+    return int(df["units"].sum())
+
     
