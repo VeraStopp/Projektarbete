@@ -19,4 +19,20 @@ def calculate_total_revenue(df):
 def calculate_total_units(df):
     return int(df["units"].sum())
 
-    
+def summary_city(df):
+    return (df.groupby("city")
+            .agg(
+                antal_ordrar = ("city", "count"),
+                medelvärde_vinst = ("revenue", "mean"),
+                median_vinst = ("revenue", "median"),
+                std_vinst = ("revenue", "std")
+            ).reset_index())
+
+def summary_category(df):
+    return (df.groupby("category")
+            .agg(
+                antal_ordrar = ("category", "count"),
+                medelvärde_vinst = ("revenue", "mean"),
+                median_vinst = ("revenue", "median"),
+                std_vinst = ("revenue", "std")
+            ).reset_index())
