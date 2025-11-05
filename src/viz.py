@@ -58,3 +58,34 @@ def plot_monthly_category_revenue(calculate_monthly_category_revenue):          
     plt.grid(True)                                                                             # Add grid for better readability
 
     plt.show()                                                                                 # Display the plot
+
+
+# Function to plot number of orders by category
+def plot_number_of_orders_by_category(calculate_number_of_orders_by_category):                     # Defining a function to plot number of orders by category
+    plt.bar(calculate_number_of_orders_by_category['category'], calculate_number_of_orders_by_category['order_count']) # Create a bar chart
+
+    # Adding titles and labels
+    plt.title("Antal beställningar per kategori")                                             # Set the title of the plot
+    plt.xlabel("Kategori")                                                                     # Set the x-axis label
+    plt.ylabel("Antal beställningar")                                                          # Set the y-axis label
+    
+    plt.show()                                                                                 # Display the plot")
+
+# Function to plot order value distribution
+def plot_order_distribution(df):
+    plt.figure(figsize=(10, 6))
+
+    # Plot a histogram of the 'revenue' column
+    # bins=50 creates 50 "buckets" for the data
+    plt.hist(df['revenue'], bins=50, edgecolor='black') 
+
+
+    max_value = df['revenue'].max() 
+    ticks = range(0, int(max_value) + 1001, 1000)
+    plt.xticks(ticks)
+
+
+    plt.title("Spridning av Ordervärden")
+    plt.xlabel("Ordervärde (kr)")
+    plt.ylabel("Antal Ordrar")
+    plt.show()

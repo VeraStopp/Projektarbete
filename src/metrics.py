@@ -1,6 +1,6 @@
 import pandas as pd                               #importing pandas library for data manipulation   
 
-def calculating_revenue_city(df):
+def calculate_revenue_city(df):
     result = df.groupby("city")["revenue"].sum().reset_index()
     result = result.sort_values(by="revenue", ascending=False).reset_index(drop=True)
     return result
@@ -44,4 +44,22 @@ def calculate_monthly_category_revenue(df):     #defining a function to calculat
     monthly_category_revenue = df.groupby(['month', 'category'])['revenue'].sum().reset_index()  #group by month and category, summing revenue
     monthly_category_revenue = monthly_category_revenue.sort_values(by=['month', 'category'])    #sort by month and category
 
-    return monthly_category_revenue 
+    return monthly_category_revenue
+
+
+def calculate_total_revenue(df):
+    """Calculates the total revenue for the entire DataFrame."""
+    return df['revenue'].sum()
+
+
+
+def calculate_total_units(df):
+    """Calculates the total units sold for the entire DataFrame."""
+    return df['units'].sum()
+
+def calculate_number_of_orders_by_category(df):
+
+    orders_by_category = df.groupby("category").size().reset_index(name='order_count')  #group by category and count orders(.size())
+    orders_by_category = orders_by_category.sort_values(by="order_count", ascending=False)  #sort by order_count
+
+    return orders_by_category
