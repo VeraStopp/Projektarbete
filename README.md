@@ -13,6 +13,15 @@
 - **Topp-städer:** 1. Stockholm, 2. Göteborg, 3. Malmö
 - **Topp-kategorier:** 1. Electronics, 2. Sports, 3. Clothing
 
+## Vem har gjort vad?
+- **Total intäkt och totalt antal enheter**: Azar
+- **AOV**: Ali
+- **Intäkt per kategori**: Carina
+- **Intäkt per stad**: Vera
+- **Summary stad och kategori**: Vera
+- **Grafer**: Ali
+- **Klass**: Gemensamt
+
 ## Miljö
 - **Python:** 3.13.7
 - **Paket:** 'Pandas', 'Matplotlib' (se 'requirements.txt)
