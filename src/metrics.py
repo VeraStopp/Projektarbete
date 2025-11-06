@@ -1,9 +1,27 @@
 import pandas as pd                               #importing pandas library for data manipulation   
 
+def summary_city(df):
+    return (df.groupby("city")
+            .agg(
+                antal_ordrar = ("city", "count"),
+                medelvärde_vinst = ("revenue", "mean"),
+                median_vinst = ("revenue", "median"),
+                std_vinst = ("revenue", "std")
+            ).reset_index())
+
 def calculate_revenue_city(df):
     result = df.groupby("city")["revenue"].sum().reset_index()
     result = result.sort_values(by="revenue", ascending=False).reset_index(drop=True)
     return result
+
+def summary_category(df):
+    return (df.groupby("category")
+            .agg(
+                antal_ordrar = ("category", "count"),
+                medelvärde_vinst = ("revenue", "mean"),
+                median_vinst = ("revenue", "median"),
+                std_vinst = ("revenue", "std")
+            ).reset_index())
 
 def calculate_category_rev(df):
     summary = df.groupby("category")["revenue"].sum().reset_index()
