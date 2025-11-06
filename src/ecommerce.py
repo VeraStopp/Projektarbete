@@ -30,5 +30,5 @@ class EcommerceAnalyzer:
         total_revenue = self.csv_file["revenue"].sum()             
         total_unique_orders = self.csv_file["order_id"].nunique() 
         average_order_value = total_revenue / total_unique_orders
-        print(f"Average order value är {average_order_value}")
+        print(f"Average order value är {average_order_value:.2f}")
 
