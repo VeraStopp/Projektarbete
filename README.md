@@ -1,34 +1,63 @@
-# E-handel 
+# Projektarbete: Analys av E-handelsdata
 
-## Rapport
+Detta repository innehåller en snabbanalys av e-handelsdata. Målet är att identifiera nyckeltal och försäljningstrender för att ge rekommendationer till ledningen.
 
-### Nyckeltal (från notebook)
-- **Totala intäkter:** 3502767.23kr
-- **Totala enheter:** 7463
-- **Average order value:** 1401.11kr
+Den fullständiga, körbara rapporten finns i filen `report.ipynb`.
 
-### Figurer
-Ali skapade den följande figurer i viz.py samtidigt med relaterade funktioner i metrics.py filen
+---
 
-- **Stapeldiagram:** Total intäkt per kategori.
-- **Linjediagram:** Total intäkt över tid (per månad).
-- **Histogram:** Spridningen av alla ordervärden.
+## 2. Hur man kör rapporten
 
-### Slutsatser baserat på aktuell data
-- **Topp-städer:** 1. Stockholm, 2. Göteborg, 3. Malmö
-- **Topp-kategorier:** 1. Electronics, 2. Sports, 3. Clothing
+För att köra denna analys lokalt, följ dessa steg:
 
-## Vem har gjort vad?
-- **Total intäkt och totalt antal enheter**: Azar
-- **AOV**: Ali
-- **Intäkt per kategori**: Carina
-- **Intäkt per stad**: Vera
-- **Summary stad och kategori**: Vera
-- **Grafer**: Ali
-- **Klass**: Gemensamt
+1.  **Klona projektet:**
+    ```bash
+    git clone [https://github.com/VeraStopp/Projektarbete.git](https://github.com/VeraStopp/Projektarbete.git)
+    cd Projektarbete
+    ```
 
-## Miljö
-- **Python:** 3.13.7
-- **Paket:** 'Pandas', 'Matplotlib' (se 'requirements.txt)
+2.  **Skapa och aktivera en virtuell miljö (venv):**
+    ```bash
+    # Skapa miljön
+    python -m venv venv
+    
+    # Aktivera miljön (Bash/Git Bash)
+    source venv/Scripts/activate
+    ```
 
-Note: Hela poängen med report.ipynb är att den är reproducerbar. Om vår CSV-fil skulle ändras imorgon, kan vi bara köra om vår notebook för att få de nya, korrekta siffrorna. Men vår README.md-fil (som är en statisk textfil) skulle fortfarande visa de gamla, felaktiga siffrorna.
+3.  **Installera alla nödvändiga paket:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Kör rapporten:**
+    Öppna mappen i VS Code och kör alla celler i `report.ipynb` från topp till botten.
+
+---
+
+## 3. Team & Ansvar
+
+* **Vera:** Ansvarig för Intäkt per stad och sammanfattning av rapporten.
+* **Carina:** Ansvarig för Intäkt per kategori.
+* **Azar:** Ansvarig för Total intäkt och totalt antal enheter.
+* **Ali:** Ansvarig för beräkning av AOV (Average Order Value) och alla visualiseringsfunktioner.
+* **Gemensamt:** Hela teamet arbetade tillsammans på att implementera `EcommerceAnalyzer`-klassen.
+
+---
+
+## 4. Miljö
+
+* **Python:** 3.13.7
+* **Huvudbibliotek:** pandas
+matplotlib
+contourpy==1.3.3 
+cycler==0.12.1
+fonttools==4.60.1 
+kiwisolver==1.4.9
+matplotlib==3.10.7
+numpy==2.3.4
+packaging==25.0
+pillow==12.0.0
+pyparsing==3.2.5
+python-dateutil==2.9.0.post0
+six==1.17.0

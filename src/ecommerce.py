@@ -1,34 +1,43 @@
 import pandas as pd
 
 class EcommerceAnalyzer:
-    def __init__(self, csv_file):
-        self.csv_file = csv_file
+    def __init__(self, data_frame):
+        self.df = data_frame
     
     def show_info(self):
-        print(self.csv_file.info())
-        print(self.csv_file.describe())
+        print(self.df.info())
+        print(self.df.describe())
     
     def total_revenue(self):
-        revenue = float(self.csv_file["revenue"].sum())
-        print(f"Totala vinsten är {revenue:.2f} kr")
+        revenue = float(self.df["revenue"].sum())
+        return revenue
     
     def total_units(self):
-        units = int(self.csv_file["units"].sum())
-        print(f"Totala antal units är {units} st")
+        units = int(self.df["units"].sum())
+        return units
 
     def revenue_city(self):
-        result_city = self.csv_file.groupby("city")["revenue"].sum().reset_index()
+        result_city = self.df.groupby("city")["revenue"].sum().reset_index()
         result_city = result_city.sort_values(by="revenue", ascending=False).reset_index(drop=True)
-        print(result_city)
+        return result_city
     
     def revenue_category(self):
-        result_cat = self.csv_file.groupby("category")["revenue"].sum().reset_index()
+        result_cat = self.df.groupby("category")["revenue"].sum().reset_index()
         result_cat = result_cat.sort_values(by="revenue", ascending=False).reset_index(drop=True)
-        print(result_cat)
+        return result_cat
     
     def average_order_value(self):   
-        total_revenue = self.csv_file["revenue"].sum()             
-        total_unique_orders = self.csv_file["order_id"].nunique() 
+        total_revenue = self.df["revenue"].sum()             
+        total_unique_orders = self.df["order_id"].nunique() 
         average_order_value = total_revenue / total_unique_orders
-        print(f"Average order value är {average_order_value:.2f}")
+        return average_order_value
 
+    def calculate_revenue_by_month(self):
+            
+            df_copy = self.df.copy() 
+            df_copy['date'] = pd.to_datetime(df_copy['date'])
+            df_copy['month'] = df_copy['date'].dt.to_period('M')
+            
+            revenue_by_month = df_copy.groupby("month")["revenue"].sum().reset_index()
+            
+            return revenue_by_month
